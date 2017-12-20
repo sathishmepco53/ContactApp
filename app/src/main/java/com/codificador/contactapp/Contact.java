@@ -10,8 +10,16 @@ public class Contact implements Serializable{
 
     private String name;
     private String number;
+    private long id;
+
+    public Contact(long id, String name, String number) {
+        this.id = id;
+        this.name = name;
+        this.number = number;
+    }
 
     public Contact(String name, String number) {
+        id = 0;
         this.name = name;
         this.number = number;
     }
@@ -30,5 +38,13 @@ public class Contact implements Serializable{
 
     public void setNumber(String number) {
         this.number = number;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

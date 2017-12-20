@@ -1,37 +1,48 @@
 package com.codificador.contactapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-public class NewContactActivity extends AppCompatActivity {
+public class EditContactActivity extends AppCompatActivity {
 
     EditText editTextName, editTextNumber;
-    Button buttonAdd;
+    Button buttonUpdate;
+    Contact contact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_contact);
+        setContentView(R.layout.activity_edit_contact);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if(getIntent() == null || getIntent().getSerializableExtra("contact") == null){
+            finish();
+        }
+        contact = (Contact) getIntent().getSerializableExtra("contact");
         initViews();
     }
 
     private void initViews(){
         editTextName = findViewById(R.id.editTextName);
         editTextNumber = findViewById(R.id.editTextNumber);
-        buttonAdd = findViewById(R.id.buttonAdd);
-        buttonAdd.setOnClickListener(new View.OnClickListener() {
+
+        editTextName.setText(contact.getName());
+        editTextNumber.setText(contact.getNumber());
+
+        buttonUpdate= findViewById(R.id.buttonUpdate);
+        buttonUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String name = editTextName.getText().toString();
                 String number = editTextNumber.getText().toString();
-                Contact contact = new Contact(name,number);
+                //don't update contact id, because just we are updating the name & number
+                contact.setName(name);
+                contact.setNumber(number);
                 Intent intent = new Intent();
                 intent.putExtra("contact",contact);
                 setResult(RESULT_OK,intent);

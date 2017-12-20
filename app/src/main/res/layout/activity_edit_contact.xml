@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.codificador.contactapp.NewContactActivity"
+    tools:context="com.codificador.contactapp.EditContactActivity"
     android:orientation="vertical"
     >
 
@@ -30,10 +30,10 @@
 
     <Button
         android:layout_margin="5dp"
-        android:id="@+id/buttonAdd"
+        android:id="@+id/buttonUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
         android:textColor="@color/white"
-        android:text="Save Contact" />
+        android:text="Update Contact" />
 </LinearLayout>

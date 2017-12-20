@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.codificador.contactapp.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/actionAdd"
+        android:title="@string/actionAdd"
+        app:showAsAction="always"
+        android:icon="@drawable/add"/>
+
 </menu>

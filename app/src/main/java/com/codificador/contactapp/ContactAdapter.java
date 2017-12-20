@@ -56,4 +56,8 @@ public class ContactAdapter extends BaseAdapter{
     public void removeContact(int position){
         contacts.remove(position);
     }
+
+    public void updateContact(Contact contact,int position){
+        contacts.set(position,contact);
+    }
 }
